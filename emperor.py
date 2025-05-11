@@ -2,7 +2,6 @@
 import os, time, random
 from rich.console import Console
 from rich.panel import Panel
-from rich.text import Text
 from rich import box
 import pyfiglet
 
@@ -29,12 +28,12 @@ def show_header():
     ascii_art = pyfiglet.figlet_format("Emperor of Cyber Darkness", font="cybermedium")
     color = random.choice(["cyan", "magenta", "green", "blue"])
     console.clear()
-    console.print(f"[bold {color}]{ascii_art}[/{color}]")
+    console.print(ascii_art, style=f"bold {color}")
     console.print(Panel("Cyber Dominion Interface", title="[cyan]AI CORE BOOTED[/cyan]", style="bold magenta", box=box.ROUNDED))
 
 def show_menu():
     tool_list = "\n".join([f"[{i+1}] {tools[i]}" for i in range(len(tools))])
-    console.print(ascii_art, style=f"bold {color}")
+    console.print(Panel(tool_list, title="[bold cyan]Mainframe Tools[/bold cyan]", box=box.DOUBLE, style="bold blue"))
 
 def update_all_tools():
     console.print("[bold yellow]Updating all tools...[/bold yellow]")

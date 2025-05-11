@@ -34,7 +34,7 @@ def show_header():
 
 def show_menu():
     tool_list = "\n".join([f"[{i+1}] {tools[i]}" for i in range(len(tools))])
-    console.print(Panel(tool_list, title="[bold cyan]Mainframe Tools[/bold cyan]", box=box.DOUBLE, style="bold blue"))
+    console.print(ascii_art, style=f"bold {color}")
 
 def update_all_tools():
     console.print("[bold yellow]Updating all tools...[/bold yellow]")
